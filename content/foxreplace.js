@@ -192,11 +192,7 @@ var foxreplace = {
    * Shows options dialog.
    */
   showOptions: function() {
-    if (!this.prefs.optionsWindow) {
-      let features = "chrome,titlebar,toolbar,centerscreen,resizable,dialog=no";
-      window.openDialog("chrome://foxreplace/content/options.xul", "", features);
-    }
-    else this.prefs.optionsWindow.focus();
+    this._openAndReuseOneTabPerURL("chrome://foxreplace/content/options.xul");
   },
 
   /**
