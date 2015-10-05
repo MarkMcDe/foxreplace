@@ -298,12 +298,7 @@ var prefs = {
    */
   ignore: function(aPrefName, aCallback, aThisObject) {
     this._preferences.ignore(aPrefName, aCallback, aThisObject);
-  },
-  
-  /**
-   * Reference to the options window.
-   */
-  optionsWindow: null
+  }
 
 };
 

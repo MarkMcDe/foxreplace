@@ -52,7 +52,6 @@ let foxreplaceOptions = {
    * Initialization code.
    */
   onLoad: function() {
-    this.prefs.optionsWindow = window;
     this.Observers.add("fxrSubscriptionStatusChanged", this.updateSubscriptionStatus, this);
     this.Observers.add(this.prefs.substitutionListChangedKey, this.loadSubstitutionList, this);
     this.loadSubstitutionList();
@@ -66,7 +65,6 @@ let foxreplaceOptions = {
   onUnload: function() {
     this.Observers.remove("fxrSubscriptionStatusChanged", this.updateSubscriptionStatus, this);
     this.Observers.remove(this.prefs.substitutionListChangedKey, this.loadSubstitutionList, this);
-    this.prefs.optionsWindow = null;
   },
 
   /**
