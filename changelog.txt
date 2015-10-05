@@ -1,4 +1,6 @@
-* Fixed bug about the options window being always opened as a modal dialog.
+* Changes in options are always applied instantly.
+* Options are now displayed in a tab instead of a dialog.
+* Added scrollbars to the options tab (issue 114).
 * Updated homepage link.
 * Updated help.
 * If the help tab is already open, it is shown instead of opening a new one.
