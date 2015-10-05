@@ -33,14 +33,14 @@
   <script type="application/x-javascript;version=1.8" src="options.js"/>
   <prefpane id="mainPane" flex="1">
     <preferences>
-      <preference id="autoReplaceOnLoad" name="extensions.foxreplace.autoReplaceOnLoad" type="bool"/>
-      <preference id="autoReplacePeriodically" name="extensions.foxreplace.autoReplacePeriodically" type="bool"/>
-      <preference id="autoReplacePeriod" name="extensions.foxreplace.autoReplacePeriod" type="int"/>
-      <preference id="replaceUrls" name="extensions.foxreplace.replaceUrls" type="bool"/>
-      <preference id="replaceScripts" name="extensions.foxreplace.replaceScripts" type="bool"/>
-      <preference id="enableSubscription" name="extensions.foxreplace.enableSubscription" type="bool"/>
-      <preference id="subscriptionUrl" name="extensions.foxreplace.subscriptionUrl" type="unichar"/>
-      <preference id="subscriptionPeriod" name="extensions.foxreplace.subscriptionPeriod" type="int"/>
+      <preference id="autoReplaceOnLoad" name="extensions.foxreplace.autoReplaceOnLoad" type="bool" instantApply="true"/>
+      <preference id="autoReplacePeriodically" name="extensions.foxreplace.autoReplacePeriodically" type="bool" instantApply="true"/>
+      <preference id="autoReplacePeriod" name="extensions.foxreplace.autoReplacePeriod" type="int" instantApply="true"/>
+      <preference id="replaceUrls" name="extensions.foxreplace.replaceUrls" type="bool" instantApply="true"/>
+      <preference id="replaceScripts" name="extensions.foxreplace.replaceScripts" type="bool" instantApply="true"/>
+      <preference id="enableSubscription" name="extensions.foxreplace.enableSubscription" type="bool" instantApply="true"/>
+      <preference id="subscriptionUrl" name="extensions.foxreplace.subscriptionUrl" type="unichar" instantApply="true"/>
+      <preference id="subscriptionPeriod" name="extensions.foxreplace.subscriptionPeriod" type="int"  instantApply="true"/>
     </preferences>
     <hbox flex="1">
       <stack flex="1">
