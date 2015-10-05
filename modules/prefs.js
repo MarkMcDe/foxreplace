@@ -287,18 +287,6 @@ var prefs = {
   },
 
   /**
-   * A Preferences object that doesn't reference any specific branch.
-   */
-  _globalPrefs: new Preferences(),
-
-  /**
-   * Returns the value of the instantApply preference.
-   */
-  get instantApply() {
-    return this._globalPrefs.get("browser.preferences.instantApply");
-  },
-
-  /**
    * Start observing a preference.
    */
   observe: function(aPrefName, aCallback, aThisObject) {
