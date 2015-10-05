@@ -41,80 +41,84 @@
       <preference id="subscriptionUrl" name="extensions.foxreplace.subscriptionUrl" type="unichar" instantApply="true"/>
       <preference id="subscriptionPeriod" name="extensions.foxreplace.subscriptionPeriod" type="int"  instantApply="true"/>
     </preferences>
-    <hbox flex="1">
-      <stack flex="1">
-        <tree id="substitutionListTree" seltype="single" editable="true" ondblclick="foxreplaceOptions.onTreeDoubleClick(event);"
-              onkeypress="if(event.keyCode==event.DOM_VK_DELETE)foxreplaceOptions.deleteSubstitutionGroup();"
-              onselect="foxreplaceOptions.onSelectSubstitutionGroup();">
-          <treecols>
-            <treecol id="enabledColumn" label="&enabledHeader;" type="checkbox" editable="true" persist="width hidden"/>
-            <splitter class="tree-splitter"/>
-            <treecol id="nameColumn" label="&nameHeader;" flex="1" persist="width hidden"/>
-            <splitter class="tree-splitter"/>
-            <treecol id="urlColumn" label="&urlHeader;" flex="1" persist="width hidden"/>
-            <splitter class="tree-splitter"/>
-            <treecol id="inputColumn" label="&inputStringHeader;" flex="1" persist="width hidden"/>
-            <splitter class="tree-splitter"/>
-            <treecol id="outputColumn" label="&outputStringHeader;" flex="1" persist="width hidden"/>
-          </treecols>
-          <treechildren id="substitutionListTreeChildren"/>
-        </tree>
-        <stack id="progressOverlay" hidden="true">
-          <page id="translucentBackground"/>
-          <vbox align="center" pack="center">
-            <progressmeter mode="undetermined" width="256" height="32"/>
-          </vbox>
+    <vbox flex="1" style="overflow: auto">
+      <hbox flex="1">
+        <stack flex="1">
+          <tree id="substitutionListTree" seltype="single" editable="true" ondblclick="foxreplaceOptions.onTreeDoubleClick(event);"
+                onkeypress="if(event.keyCode==event.DOM_VK_DELETE)foxreplaceOptions.deleteSubstitutionGroup();"
+                onselect="foxreplaceOptions.onSelectSubstitutionGroup();">
+            <treecols>
+              <treecol id="enabledColumn" label="&enabledHeader;" type="checkbox" editable="true" persist="width hidden"/>
+              <splitter class="tree-splitter"/>
+              <treecol id="nameColumn" label="&nameHeader;" flex="1" persist="width hidden"/>
+              <splitter class="tree-splitter"/>
+              <treecol id="urlColumn" label="&urlHeader;" flex="1" persist="width hidden"/>
+              <splitter class="tree-splitter"/>
+              <treecol id="inputColumn" label="&inputStringHeader;" flex="1" persist="width hidden"/>
+              <splitter class="tree-splitter"/>
+              <treecol id="outputColumn" label="&outputStringHeader;" flex="1" persist="width hidden"/>
+            </treecols>
+            <treechildren id="substitutionListTreeChildren"/>
+          </tree>
+          <stack id="progressOverlay" hidden="true">
+            <page id="translucentBackground"/>
+            <vbox align="center" pack="center">
+              <progressmeter mode="undetermined" width="256" height="32"/>
+            </vbox>
+          </stack>
         </stack>
-      </stack>
-      <vbox>
-        <button id="addButton" label="&addButton.label;" accesskey="&addButton.accesskey;" oncommand="foxreplaceOptions.addSubstitutionGroup();"/>
-        <button id="editButton" disabled="true" label="&editButton.label;" accesskey="&editButton.accesskey;"
-                oncommand="foxreplaceOptions.editSubstitutionGroup();"/>
-        <button id="deleteButton" disabled="true" label="&deleteButton.label;" accesskey="&deleteButton.accesskey;"
-                oncommand="foxreplaceOptions.deleteSubstitutionGroup();"/>
-        <button id="clearButton" disabled="true" label="&clearButton.label;" accesskey="&clearButton.accesskey;"
-                oncommand="foxreplaceOptions.clearSubstitutionList();"/>
-        <separator/>
-        <button id="moveUpButton" disabled="true" label="&moveUpButton.label;" accesskey="&moveUpButton.accesskey;"
-                oncommand="foxreplaceOptions.moveUpSubstitutionGroup();"/>
-        <button id="moveDownButton" disabled="true" label="&moveDownButton.label;" accesskey="&moveDownButton.accesskey;"
-                oncommand="foxreplaceOptions.moveDownSubstitutionGroup();"/>
-        <separator flex="1"/>
-        <button id="importButton" label="&importButton.label;" accesskey="&importButton.accesskey;" oncommand="foxreplaceOptions.importSubstitutionList();"/>
-        <button id="importFromUrlButton" label="&importFromUrlButton.label;" accesskey="&importFromUrlButton.accesskey;"
-                oncommand="foxreplaceOptions.importSubstitutionListFromUrl();"/>
-        <button id="exportButton" label="&exportButton.label;" accesskey="&exportButton.accesskey;" oncommand="foxreplaceOptions.exportSubstitutionList();"/>
-      </vbox>
-    </hbox>
-    <separator/>
-    <groupbox id="subscriptionGroupBox">
-      <caption label="&subscriptionGroupBoxCaption;"/>
-      <checkbox id="subscriptionEnableCheckBox" label="&subscriptionEnableCheckBox.label;" accesskey="&subscriptionEnableCheckBox.accesskey;"
-                preference-editable="true" preference="enableSubscription"/>
-      <hbox align="center">
-        <label id="subscriptionUrlLabel" control="subscriptionUrlTextBox" value="&subscriptionUrl.label;" accesskey="&subscriptionUrl.accesskey;"/>
-        <textbox id="subscriptionUrlTextBox" flex="1" preference-editable="true" preference="subscriptionUrl"/>
-        <label id="subscriptionPeriodLabel" control="subscriptionPeriodTextBox" value="&subscriptionPeriod.label;" accesskey="&subscriptionPeriod.accesskey;"/>
-        <textbox id="subscriptionPeriodTextBox" type="number" min="1" max="1440" maxlength="4" size="4" preference-editable="true"
-                 preference="subscriptionPeriod"/>
+        <vbox>
+          <button id="addButton" label="&addButton.label;" accesskey="&addButton.accesskey;" oncommand="foxreplaceOptions.addSubstitutionGroup();"/>
+          <button id="editButton" disabled="true" label="&editButton.label;" accesskey="&editButton.accesskey;"
+                  oncommand="foxreplaceOptions.editSubstitutionGroup();"/>
+          <button id="deleteButton" disabled="true" label="&deleteButton.label;" accesskey="&deleteButton.accesskey;"
+                  oncommand="foxreplaceOptions.deleteSubstitutionGroup();"/>
+          <button id="clearButton" disabled="true" label="&clearButton.label;" accesskey="&clearButton.accesskey;"
+                  oncommand="foxreplaceOptions.clearSubstitutionList();"/>
+          <separator/>
+          <button id="moveUpButton" disabled="true" label="&moveUpButton.label;" accesskey="&moveUpButton.accesskey;"
+                  oncommand="foxreplaceOptions.moveUpSubstitutionGroup();"/>
+          <button id="moveDownButton" disabled="true" label="&moveDownButton.label;" accesskey="&moveDownButton.accesskey;"
+                  oncommand="foxreplaceOptions.moveDownSubstitutionGroup();"/>
+          <separator flex="1"/>
+          <button id="importButton" label="&importButton.label;" accesskey="&importButton.accesskey;" oncommand="foxreplaceOptions.importSubstitutionList();"/>
+          <button id="importFromUrlButton" label="&importFromUrlButton.label;" accesskey="&importFromUrlButton.accesskey;"
+                  oncommand="foxreplaceOptions.importSubstitutionListFromUrl();"/>
+          <button id="exportButton" label="&exportButton.label;" accesskey="&exportButton.accesskey;" oncommand="foxreplaceOptions.exportSubstitutionList();"/>
+        </vbox>
       </hbox>
+      <separator/>
+      <groupbox id="subscriptionGroupBox">
+        <caption label="&subscriptionGroupBoxCaption;"/>
+        <checkbox id="subscriptionEnableCheckBox" label="&subscriptionEnableCheckBox.label;" accesskey="&subscriptionEnableCheckBox.accesskey;"
+                  preference-editable="true" preference="enableSubscription"/>
+        <hbox align="center">
+          <label id="subscriptionUrlLabel" control="subscriptionUrlTextBox" value="&subscriptionUrl.label;" accesskey="&subscriptionUrl.accesskey;"/>
+          <textbox id="subscriptionUrlTextBox" flex="1" preference-editable="true" preference="subscriptionUrl"/>
+          <label id="subscriptionPeriodLabel" control="subscriptionPeriodTextBox" value="&subscriptionPeriod.label;"
+                 accesskey="&subscriptionPeriod.accesskey;"/>
+          <textbox id="subscriptionPeriodTextBox" type="number" min="1" max="1440" maxlength="4" size="4" preference-editable="true"
+                   preference="subscriptionPeriod"/>
+        </hbox>
+        <hbox align="center">
+          <label id="subscriptionStatusLabel" value="&subscriptionStatus.label;"/>
+          <label id="subscriptionStatusTextBox" flex="1" disabled="true"/>
+        </hbox>
+      </groupbox>
+      <separator/>
+      <checkbox id="autoReplaceOnLoadCheckBox" label="&autoReplaceOnLoad.label;" accesskey="&autoReplaceOnLoad.accesskey;" preference-editable="true"
+                preference="autoReplaceOnLoad"/>
       <hbox align="center">
-        <label id="subscriptionStatusLabel" value="&subscriptionStatus.label;"/>
-        <label id="subscriptionStatusTextBox" flex="1" disabled="true"/>
+        <checkbox id="autoReplacePeriodicallyCheckBox" label="&autoReplacePeriodically.label;" accesskey="&autoReplacePeriodically.accesskey;"
+                  preference-editable="true" preference="autoReplacePeriodically"/>
+        <textbox id="autoReplacePeriodTextBox" type="number" min="1" max="3600" maxlength="4" size="4" preference-editable="true"
+                 preference="autoReplacePeriod"/>
+        <label id="autoReplacePeriodLabel" control="autoReplacePeriodTextBox" value="&autoReplacePeriod.label;" accesskey="&autoReplacePeriod.accesskey;"/>
       </hbox>
-    </groupbox>
-    <separator/>
-    <checkbox id="autoReplaceOnLoadCheckBox" label="&autoReplaceOnLoad.label;" accesskey="&autoReplaceOnLoad.accesskey;" preference-editable="true"
-              preference="autoReplaceOnLoad"/>
-    <hbox align="center">
-      <checkbox id="autoReplacePeriodicallyCheckBox" label="&autoReplacePeriodically.label;" accesskey="&autoReplacePeriodically.accesskey;"
-                preference-editable="true" preference="autoReplacePeriodically"/>
-      <textbox id="autoReplacePeriodTextBox" type="number" min="1" max="3600" maxlength="4" size="4" preference-editable="true" preference="autoReplacePeriod"/>
-      <label id="autoReplacePeriodLabel" control="autoReplacePeriodTextBox" value="&autoReplacePeriod.label;" accesskey="&autoReplacePeriod.accesskey;"/>
-    </hbox>
-    <checkbox id="replaceUrlsCheckBox" label="&replaceUrls.label;" accesskey="&replaceUrls.accesskey;" preference-editable="true" preference="replaceUrls"/>
-    <checkbox id="replaceScriptsCheckBox" label="&replaceScripts.label;" accesskey="&replaceScripts.accesskey;" preference-editable="true"
-              preference="replaceScripts"/>
+      <checkbox id="replaceUrlsCheckBox" label="&replaceUrls.label;" accesskey="&replaceUrls.accesskey;" preference-editable="true" preference="replaceUrls"/>
+      <checkbox id="replaceScriptsCheckBox" label="&replaceScripts.label;" accesskey="&replaceScripts.accesskey;" preference-editable="true"
+                preference="replaceScripts"/>
+    </vbox>
   </prefpane>
   <tooltip id="tooltip" onclick="this.hidePopup();">&description;</tooltip>
 </prefwindow>
