@@ -70,17 +70,6 @@ let foxreplaceOptions = {
   },
 
   /**
-   * Handler for dialog accept. Saves the substitution list if instantApply is false.
-   */
-  onAccept: function() {
-    if (!this.prefs.instantApply) {
-      this.prefs.substitutionList = this.substitutionList;
-    }
-
-    return true;
-  },
-
-  /**
    * Tree double click event handler.
    */
   onTreeDoubleClick: function(aEvent) {
@@ -161,12 +150,10 @@ let foxreplaceOptions = {
   },
   
   /**
-   * Handles a change in the substitution list. Saves the substitution list to preferences if instantApply is true.
+   * Handles a change in the substitution list. Saves the substitution list.
    */
   _handleListChange: function() {
-    if (this.prefs.instantApply) {
-      this.prefs.substitutionList = this.substitutionList;
-    }
+    this.prefs.substitutionList = this.substitutionList;
   },
 
   /**
